@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilberto Djacari - Engenheiro Informático</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        :root {
+            --primary-color:rgb(33, 37, 41);
+            --secondary-color:rgb(249, 166, 0);
+            --text-color: #fff;
+            --bg-color: #000;
+            --card-bg: #333;
+        }
+        .brand-logo {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0 15px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+    
+        .brand-logo:hover {
+            transform: scale(1.05);
+        }
+     
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+        .parallax-container {
+            height: 100vh;
+        }
+        nav {
+            background-color: transparent;
+            box-shadow: none;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        nav ul a {
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+        nav ul a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav ul a:hover, 
+        nav ul a.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        .sidenav {
+            background-color: var(--primary-color);
+        }
+        .sidenav li > a {
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .sidenav li > a:hover,
+        .sidenav li > a.active {
+            background-color: var(--secondary-color);
+        }
+
+
+
+        .section {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .section h2 {
+            color: rgb(249, 166, 0);;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card-content {
+            color: var(--text-color);
+        }
+        .btn {
+            background-color: var(--secondary-color);
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-weight: 500;
+            padding: 0 30px;
+        }
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .calendly-button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .calendly-button:hover {
+            background-color: var(--primary-color);
+        }
+
+
+        footer.page-footer {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: #fff;
+            font-size: 34px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .typed-text {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            color: var(--secondary-color);
+        }
+        .skill-progress {
+            margin-bottom: 20px;
+        }
+        .skill-progress .progress {
+            height: 10px;
+            background-color:rgb(224, 224, 224);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .skill-progress .progress .determinate {
+            background-color: var(--secondary-color);
+        }
+        @media only screen and (max-width: 992px) {
+            .parallax-container {
+                height: auto;
+                min-height: 100vh;
+            }
+            .parallax-content {
+                padding: 100px 0;
+            }
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                margin-top: 30px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .typed-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo">Gilberto Djacari</a>
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#home" class="nav-link">home</a></li>
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
+                    <li><a href="#skills"class="nav-link" >Habilidades</a></li>
+                    <li><a href="#projects" class="nav-link">Projetos</a></li>
+                    <li><a href="#contact" class="nav-link" >Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile-nav">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="parallax-container">
+            <!--<div class="parallax"><img src="https://source.unsplash.com/random/1920x1080/?technology" alt="Technology"></div>-->
+            <div class="parallax-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 l6" data-aos="fade-right">
+                            
+                            <h1 data-aos="fade-right">Hi, I'm Gilberto Djacari</h1>
+                          
+                            
+                            <div class="typed-text">
+                                <span id="typed"></span>
+                            </div> <br><br>
+
+                            <div class="row center-align" data-aos="fade-up" data-aos-delay="300">
+                                <a href="https://calendar.app.google/1ChKQrL1UhBbdpiW8" 
+                                   target="_blank"
+                                   class="btn waves-effect waves-light">
+                                    <i class="material-icons left">event</i>
+                                    Agendar uma Reunião
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col s12 l6 center-align" data-aos="fade-left">
+                            <img src="{{ profile.image.url }}" alt="{{ profile.name }}" class="profile-image responsive-img">
+                            <div class="social-links">
+                                <a href="{{ profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                <a href="{{ profile.github_url }}" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="{{ profile.twitter_url }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="center-align" data-aos="fade-up">Sobre Mim</h2>
+                <div class="row">
+                    <div class="col s12" data-aos="fade-up">
+                        <p class="flow-text">
+                            {{ profile.bio }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="center-align" data-aos="fade-up">Habilidades</h2>
+                <div class="row">
+                    {% for skill in skills %}
+                    <div class="col s12 m6" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:"100" }}">
+                        <div class="skill-progress">
+                            <span class="skill-title">{{ skill.name }}</span>
+                            <div class="progress">
+                                <div class="determinate" style="width: {{ skill.level }}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="center-align" data-aos="fade-up">Projetos</h2>
+                <div class="row">
+                    {% for project in projects %}
+                    <div class="col s12 m6 l4" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:"100" }}">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                                <span class="card-title">{{ project.title }}</span>
+                            </div>
+                            <div class="card-content">
+                                <p>{{ project.description }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{{ project.url }}" target="_blank" class="btn waves-effect waves-light">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- ... (conteúdo anterior permanece o mesmo) ... -->
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="center-align" data-aos="fade-up">Contato</h2>
+                <div class="row">
+                    <form method="post" class="col s12 m8 offset-m2" data-aos="fade-up" data-aos-delay="200">
+                        {% csrf_token %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="card-panel {{ message.tags }} lighten-4">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <div class="row">
+                            <div class="input-field col s12">
+                                {{ form.name }}
+                                <label for="{{ form.name.id_for_label }}">Nome</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                {{ form.email }}
+                                <label for="{{ form.email.id_for_label }}">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                {{ form.message }}
+                                <label for="{{ form.message.id_for_label }}">Mensagem</label>
+                            </div>
+                        </div>
+                        <div class="row center-align">
+                            <button class="btn waves-effect waves-light" type="submit">
+                                Enviar <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12" data-aos="fade-right">
+                    <h5 class="white-text">Gilberto Djacari</h5>
+                    <p class="grey-text text-lighten-4">Engenheiro Informático | Desenvolvedor Full-Stack- Python</p>
+                    <p class="grey-text text-lighten-4">Email:devdjacari@gmail.com | Tel: +351 932 477 636</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#about">Sobre</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#skills">Habilidades</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#projects">Projetos</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © {% now "Y" %} Gilberto Djacari
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Materialize components
+            M.Parallax.init(document.querySelectorAll('.parallax'));
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
+
+             // Smooth scrolling
+             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+        
+
+            // Navbar color change on scroll
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 100) {
+                    nav.style.backgroundColor = 'rgba(44, 62, 80, 1)';
+                } else {
+                    nav.style.backgroundColor = 'rgba(44, 62, 80, 0.9)';
+                }
+            });
+
+            // Highlight active menu item
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Close sidenav on mobile when a link is clicked
+                    const sidenav = M.Sidenav.getInstance(document.querySelector('.sidenav'));
+                    if (sidenav.isOpen) {
+                        sidenav.close();
+                    }
+                });
+            });
+            // TypedJS initialization
+            var typed = new Typed('#typed', {
+                strings: ['Desenvolvedor de Sistemas Web Python', 'Desenvolvedor de Databases MYSQL e ORACLE'],
+                typeSpeed: 50,
+                backSpeed: 50,
+                loop: true
+            });
+
+            // Close sidenav on link click for mobile
+            document.querySelectorAll('.sidenav a').forEach(function(elem) {
+                elem.addEventListener('click', function() {
+                    var instance = M.Sidenav.getInstance(document.querySelector('.sidenav'));
+                    instance.close();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
